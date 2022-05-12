@@ -14,7 +14,6 @@ import java.util.List;
 public class AggregatorController {
 
     private static final Logger logger = LoggerFactory.getLogger(AggregatorController.class.getName());
-
     private AggregatorService service;
 
     public AggregatorController(AggregatorService service) {
@@ -29,5 +28,11 @@ public class AggregatorController {
     @GetMapping("/getWordsThatContainSuccessiveLettersAndStartsWith/{chars}")
     public List<Entry> getWordsThatContainSuccessiveLettersAndStartsWith(@PathVariable String chars) {
         return service.getWordsThatContainSuccessiveLettersAndStartsWith(chars);
+    }
+
+    @GetMapping("/getAllPalindromes/{word}")
+    public<List> Entry getAllPalindromes(@PathVariable String word) {
+
+        return service.getDefinitionFor(word);
     }
 }
